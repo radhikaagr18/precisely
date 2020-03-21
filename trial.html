@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <!-- <script src="jquery-1.11.2.js"></script>
+    <script src="jquery-ui.js"></script>
+    <link href="jquery-ui.css" rel="stylesheet" /> -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#source li').draggable({
+                helper: 'clone',
+               
+            });
+
+            $('#divCountries').droppable({
+                // accept: 'li[data-value="country"]',
+                drop: function (event, ui) {
+                    $('#countries').append(ui.draggable);
+                }
+            });
+
+            $('#divCities').droppable({
+                // accept: 'li[data-value="city"]',
+                drop: function (event, ui) {
+                    $('#cities').append(ui.draggable);
+                }
+            });
+        });
+    </script>
+    <style>
+        .divClass {
+            border: 3px solid black;
+            font-size: 25px;
+            background-color: lightgray;
+            width: 250px;
+            padding: 5px;
+            display: inline-table;
+        }
+
+        li {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body style="font-family: Arial">
+    <form id="form1" runat="server">
+        <div class="divClass">
+            Countries & Cities
+                <ul id="source">
+                    <li data-value="country">USA</li>
+                    <li data-value="country">India</li>
+                    <li data-value="country">UK</li>
+                    <li data-value="city">New York</li>
+                    <li data-value="city">Chennai</li>
+                    <li data-value="city">London</li>
+                </ul>
+        </div>
+
+        <div class="divClass" id="divCountries">
+            Countries
+            <ul id="countries"></ul>
+        </div>
+
+        <div class="divClass" id="divCities">
+            Cities
+            <ul id="cities"></ul>
+        </div>
+    </form>
+</body>
+</html>
