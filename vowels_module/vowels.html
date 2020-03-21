@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Education for all">
+    <meta name="author" content="Pankaj">
+
+    <title>eVidya</title>
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+    <script>var APP_URL = "http://15.206.80.44";</script>
+    <script>
+        var module_id = "3";
+    </script>
+
+    <script src="scripts/external/jquery-3.4.1.min.js"></script>
+    <script src="scripts/external/jquery-ui-1.12.1.min.js"></script>
+    <script src="scripts/cookie_handling.js"></script>
+    <script src="scripts/external/jquery.loadingModal.js"></script>
+
+    <script
+            src="scripts/external/bootstrap-4.4.1.min.js"></script>
+    <link rel="stylesheet" href="styles/external/font-awesome-4.7.0.min.css">
+
+
+
+    <link rel="stylesheet" href="styles/external/bootstrap-4.1.3.min.css">
+    <link rel="stylesheet" href="styles/external/jquery.loadingModal.css">
+    <link rel="stylesheet" href="styles/image_association.css">
+    <link rel="stylesheet" href="styles/emoji.css">
+    <link rel="stylesheet" href="styles/rating.css">
+    <link rel="stylesheet" href="styles/gif_modal.css">
+</head>
+<body oncontextmenu="return false;">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#FFF; ">
+    <div class="container">
+        <a class="navbar-brand" href="">
+            <img src="images/logo.svg" class="d-inline-block align-top" alt="eVidya">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link" href="">Dashboard</a>
+                <a class="nav-item nav-link" href="">Progress</a>
+                <a class="nav-item nav-link" href="">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>	    <div id="myNav" class="overlay" onclick="closenav()">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content">
+        <video id="gif" loop>
+            <source src="storage/videos/image_association_phase2.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+<div class="container module-container">
+    <div class="row">
+        <div class="col-sm-2 bg-light">
+            <nav class="nav flex-column">
+                <a class="nav-link active" href="#">E-Vidya</a>
+                <a class="nav-link" href="#">Activities</a>
+                <a class="nav-link" href="#">Help</a>
+                <a class="nav-link " href="#">About</a>
+            </nav>
+        </div>
+        <div class="col-sm-7">
+            <div class="jumbotron bg-light" id="module1-panel">
+                <!-- <div class="row not-start justify-content-center">
+                    <img id="question_image" src="">
+                </div>
+                <div class="row not-start justify-content-center">
+                    <div id="fillBlanks" class="col-auto blanks">
+                    </div>
+
+                </div>
+                <div id="shuffledArray" class="row boxes not-start">
+
+                </div>
+                <div class="row justify-content-center not-start">
+                    <button id="nextStageButton" type="button" class="btn btn-secondary btn-lg next-stage-btn">
+                        Next
+                    </button>
+                    <button id="resetButton" type="button" class="btn btn-secondary btn-lg next-stage-btn">Reset
+                    </button>
+                </div> -->
+                <form id="form1" runat="server">
+                    <div class="divClass">
+                <div class="not-start justify-content-center blanks_div" id="blanks1">
+                    <legend style="display: block;" class="blanks_filled_div" >Vowels</legend>
+                    <ul id="vowels" style="list-style-type:none;" class="row"></ul>
+                </div>
+                <div class=" not-start justify-content-center blanks_div" id="blanks2">
+                    <legend style="display: block;" class="blanks_filled_div" >Consonants</legend>
+                    <ul id="consonants" style="list-style-type:none;" class="row"></ul>
+                </div>
+                <div class="row not-start justify-content-center sourceImage_div">
+                    <div class="col-auto"><img alt="imageSource Needed" id="sourceImage" src="" height="140"></div>
+                </div>
+                <br><br><br><br>
+                <div class="row not-start justify-content-center blanks_filled_div" id="blanks_filled" style="width: 100%;height: 100px;">
+                    <ul id="source" style="list-style-type:none;" class="row">
+                        <br><br>
+                    </ul>
+                
+                <div class="row justify-content-center not-start next_reset_buttons_div">
+                    <button class="btn btn-secondary btn-lg next-stage-btn mx-2" id="nextStageButton" type="button">Next
+                    </button>
+                      <button id="resetButton" type="button" class="btn btn-secondary btn-lg next-stage-btn mx-2">Reset
+                      </button>
+                </div>
+            </div>
+        </div>
+            </form>
+                <div class="row justify-content-center">
+                    <button id="startBtn" type="button" class="btn btn-secondary btn-lg next-stage-btn">Start
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 bg-light">
+            <div class="row justify-content-center avatar-row">
+                <div class="col align-self-center">
+                    <div class="newtooltip">
+                        <div class="audio-btn" id="audio_button">
+                            <span> <i class="fa fa-volume-up vol-btn__icon" style="font-size:15px;"></i></span>
+                        </div>
+                        <div id="cssHead">
+                            <div class="cssEye leftEye">
+                                <div class="cssEyeLid">
+                                    <div class="cssPupil">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cssEye rightEye">
+                                <div class="cssEyeLid">
+                                    <div class="cssPupil">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cssMouth">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center star-rating">
+                <!-- ★ \2605 unicode -->
+                <span id="star">☆</span>
+                <!-- <span>☆</span>
+                <span>☆</span>
+                <span>☆</span>
+                <span>☆</span> -->
+                <span id="star_counter">0</span>
+            </div>
+        </div>
+    </div>
+</div>
+<audio id="loop_audio_player">
+    <!-- <source src='http://hi5.1980s.fm/;' type='audio/mpeg'/> -->
+</audio>
+<audio id="options_click_player">
+    <!-- <source src='http://hi5.1980s.fm/;' type='audio/mpeg'/> -->
+</audio>
+<audio id="star_player">
+</audio>
+<script src = "scripts/api_throttling.js"></script>
+<script src = "scripts/audio.js"></script>
+<script src = "scripts/gif_modal.js"></script>
+<script src="scripts/vowels.js"></script>
+
+</body>
+</html>
