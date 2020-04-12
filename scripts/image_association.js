@@ -219,7 +219,7 @@ function renderStart(){
             window.scrollBy(0, 600);
             document.getElementById('cssHead').style.opacity=1;
             document.getElementById('day_bg').style.visibility="collapse";
-            document.body.style.backgroundImage = "url('images/twinkle.gif')";
+            document.body.style.backgroundImage = "url('images/kids1.jpeg')";
             document.getElementsByClassName('star-rating').style.visibility="visible";
         }
     };
